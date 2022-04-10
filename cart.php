@@ -29,7 +29,7 @@
                 }
             }
         }else{
-            echo "<h5>Cart is Empty</h5>";
+            echo "<h5>Empty Cart</h5>";
         }
     ?>
 </body>
