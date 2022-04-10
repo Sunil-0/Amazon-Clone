@@ -1,0 +1,184 @@
+/* New User */
+.err{
+    color:red;
+    font-size: 12px;
+}
+.mainform{
+    margin: 0%;
+    width: 100%;
+    padding: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body{
+    padding: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    
+}
+header{
+    margin: 15px 0px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.loginContainer{
+    margin: 0%;
+    width: 100%;
+    padding: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.subloginContainer{
+    width: 340px;
+}
+.login{
+    border: 1px solid rgba(128, 128, 128, 0.573);
+    border-radius: 5px;
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.loginlogo{
+    width: 40%;
+    height: 5%;
+}
+.H1{
+    margin: 8px 0px 12px 0px;
+    font-size: 170%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.H2{
+    font-size: 80%;
+}
+.H3{
+    margin-top: 15px;
+    font-size: 90%;
+}
+input{
+    margin-top: 3px;
+    width: 290px;
+    padding: 5px;
+    border: 0.5px solid black;
+    border-radius: 2px;
+}
+input:focus{
+    outline: none;
+    border: 0.5px solid orange;
+    box-shadow: 0px 0px 5px orange;
+}
+.location{
+    margin-top: 15px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    padding: 15px;
+    width: 270px;
+}
+.location input{
+    width: 260px;
+}
+.submit{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 300px;
+    background-color: rgba(255, 166, 0, 0.638);
+    border: 0.3px solid black;
+    border-radius: 2px;
+}
+.terms{
+    font-size: 90%;
+}
+a{
+    text-decoration: none;
+    color: blue;
+}
+.subLogin{
+    margin: 0%;
+}
+hr {
+    width: 40px;
+}
+.newuser{
+    display: flex;
+    justify-items: start;
+    padding: 0%;
+}
+.newto{
+    padding: 0px 10px;
+    width: 34%;
+    font-size: 15px;
+    margin: 25px 0px;
+    color: rgba(0, 0, 0, 0.577);
+}
+.divider {
+    margin: 0%;
+    padding: 0%;
+    display: inline-block;
+    border-bottom: black 1px solid;
+    width: 33%;
+    margin: 30px 0px;
+}
+.create{
+    width: 100%;
+    padding: 8px;
+}
+.line{
+    margin: 0%;
+    padding: 0%;
+    border-bottom: rgba(0, 0, 0, 0.199) 1px solid;
+    width: 1000px;
+    margin: 30px 0px;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.467);
+}
+.footerterms{
+    display: flex;
+    justify-content: center; 
+}
+.footerelements{
+    margin: 10px;
+    font-size: 12px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.copyright{
+    display: flex;
+    justify-content: center; 
+}
+/* Register.php */
+
+.pwdhint{
+    font-size: 10px;
+}
+.cinput{
+    margin-bottom: 2px;
+    
+}
+
+/* password.php */
+
+.npwd{
+    margin: 10px 0px;
+}
+.checkin{
+    width: 12px;
+    height: 12px;
+}
+.checkin:focus{
+    border: none;
+    box-shadow: none;
+}
