@@ -37,10 +37,10 @@
         <input class="search" type="search" name="" id="">
         <button class="searchbtn" type="submit"><i class="fa fa-search"></i></button>
         <div class="cartcontainer">
-            <a href=""><i class="fa badge fa-lg" value=8>&#xf07a;</i></a>
+            <a href="cart.php"><i class="fa badge fa-lg" value=<?php $_SESSION['cart_count'] ?>>&#xf07a;</i></a>
         </div>
         <div class="profile">
-            <a href=""><?php echo $UserName?></a>
+            <a href="profile.php"><?php echo $UserName?></a>
         </div>
     </div>
 

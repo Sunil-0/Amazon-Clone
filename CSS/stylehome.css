@@ -10,10 +10,6 @@ body{
     background-color: black;
     margin: 0%;
 }
-.header img{
-
-    width: 15%;
-}
 .search{
     border: 1px solid white;
     border-radius: 10px 0px 0px 10px;
@@ -38,6 +34,13 @@ body{
 .loccontainer:hover{
     border: 1px solid white;
     border-radius: 2px;
+}
+.cart{
+    display: flex;
+    border: 1px solid white;
+}
+.fa-shopping-cart{
+   font-size: 48px;
 }
 a{
     text-decoration: none;

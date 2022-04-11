@@ -1,17 +1,56 @@
-<?php 
-    session_start();
-    $emailphone = $_SESSION["emailphone"];
-    $connect = new mysqli("localhost", "root", "", "register");
-        $usercheck = "SELECT * FROM register WHERE mobilenum = '$emailphone' OR email = '$emailphone'";
-        $unq = $connect->query($usercheck);
-        if($unq){
-            $Userrow = $unq->fetch_assoc();
-            $UserName = $Userrow["name"];
-            $UserEmail = $Userrow["email"];
-            $UserMobile = $Userrow["mobilenum"];
-            $Userpincode =$Userrow["pincode"];
-            $Usercity = $Userrow["city"];
-        }
+<?php
+$con = mysqli_connect("localhost","root","","cartitems");
+if (mysqli_connect_errno()){
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+die();}
+?>
+<?php
+session_start();
+$status="";
+if (isset($_POST['code']) && $_POST['code']!=""){
+$code = $_POST['code'];
+$result = mysqli_query(
+$con,
+"SELECT * FROM `cartitems` WHERE `code`='$code'"
+);
+$row = mysqli_fetch_assoc($result);
+$name = $row['name'];
+$code = $row['code'];
+$price = $row['price'];
+$image = $row['image'];
+
+$cartArray = array(
+	$code=>array(
+	'name'=>$name,
+	'code'=>$code,
+	'price'=>$price,
+	'quantity'=>1,
+	'image'=>$image)
+);
+
+if(empty($_SESSION["shopping_cart"])) {
+    $_SESSION["shopping_cart"] = $cartArray;
+    $status = "<div class='box'>Product is added to your cart!</div>";
+}else{
+    $array_keys = array_keys($_SESSION["shopping_cart"]);
+    if(in_array($code,$array_keys)) {
+	$status = "<div class='box' style='color:red;'>
+	Product is already added to your cart!</div>";	
+    } else {
+    $_SESSION["shopping_cart"] = array_merge(
+    $_SESSION["shopping_cart"],
+    $cartArray
+    );
+    $status = "<div class='box'>Product is added to your cart!</div>";
+	}
+
+	}
+}
+?>
+<?php
+if(!empty($_SESSION["shopping_cart"])) {
+    $_SESSION['cart_count'] = count(array_keys($_SESSION["shopping_cart"]));
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,84 +59,107 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/stylehome.css">
+    <link rel="stylesheet" href="CSS/extra.css">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
-<!--- Header --->
-<div class="header">
-        <img class="logo" src="images/amazonlogo.png" alt="image">
-        <div class="loccontainer">
-         <a href="">
-             <?php 
-                echo $Userpincode."<br>"; 
-                echo $Usercity;
-             ?>
-        </a>
-        </div>
-        <input class="search" type="search" name="" id="">
-        <button class="searchbtn" type="submit"><i class="fa fa-search"></i></button>
-        <div class="cartcontainer">
-            <a href=""><i class="fa badge fa-lg" value=8>&#xf07a;</i></a>
-        </div>
-        <div class="profile">
-            <a href=""><?php echo $UserName?></a>
-        </div>
+<div class="cartdiv">
+<a href="cart.php"><img style='padding:10px 15px 10px 10px;' src="images/cart-icon.png" />
+<span style='font-size: 12px;
+	line-height: 14px;
+	background: #F68B1E;
+	padding: 2px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	left: 25px;
+	color: #fff;
+	width: 15px;
+	height: 15px;
+	text-align: center;'><?php echo $_SESSION['cart_count']; ?></span></a>
 </div>
 
 <!--- Laptops --->
 <div class="laptopContainer">
     <div class="lct">
         <div class="card">
-            <img class="phnimg" src="images/HeadPhones/h1.jpg" alt="Phones">
+        <form method='post' action=''>
+                <input type='hidden' name='code' value="h1" />
+            <img class="phnimg" src="images/HeadPhones/h1.jpg">
             <p>New Bose QuietComfort 45 Noise Cancelling Headphones - Triple Black</p>
-            <p class="slash">₹39,999</p><p class="price">₹36,999 (10% off)</p>
-            <input class="addtocart" value="Add To Cart" type="submit" name="l1">
+            <p class="slash">₹2,499</p><p class="price">₹1,199 (52% off)</p>
+            <button type='submit' class='buy'>Buy Now</button>
+            </form>
         </div>
+
         <div class="card">
+        <form method='post' action=''>
+                <input type='hidden' name='code' value="h2" />
             <img class="phnimg" src="images/HeadPhones/h2.jpg" alt="phones">
             <p>Tribit XFree Go Headphones with Mic, Wireless Bluetooth Headphone...</p>
             <p class="slash">₹3,299</p><p class="price">₹2,399 (56% off)</p>
-            <input class="addtocart" value="Add To Cart" type="submit" name="l1">
+            <button type='submit' class='buy'>Buy Now</button>
+            </form>
         </div>
+
         <div class="card">
+        <form method='post' action=''>
+                <input type='hidden' name='code' value="h3" />
             <img class="phnimg" src="images/HeadPhones/h3.jpg" alt="phones">
             <p>boAt Rockerz 370 Bluetooth Wireless On Ear Headphone with Mic (Buoyant Black)</p>
-            <p class="slash">₹2,499</p><p class="price">₹1,199 (52% off)</p>
-            <input class="addtocart" value="Add To Cart" type="submit" name="l1">
+            <p class="slash">₹39,999</p><p class="price">₹36,999 (10% off)</p>
+            <button type='submit' class='buy'>Buy Now</button>
+            </form>
         </div>
+
         <div class="card">
+        <form method='post' action=''>
+                <input type='hidden' name='code' value="h4" />
             <img class="phnimg" src="images/HeadPhones/h4.jpg" alt="phones">
             <p>boAt Bassheads 900 Wired On Ear Headphones with Mic (Carbon Black)</p>
             <p class="slash">₹2,490</p><p class="price">₹799 (68% off)</p>
-            <input class="addtocart" value="Add To Cart" type="submit" name="l1">
+            <button type='submit' class='buy'>Buy Now</button>
+            </form>
         </div>
     </div>
     <div class="lct">
         <div class="card">
+        <form method='post' action=''>
+                <input type='hidden' name='code' value="h5" />
             <img class="phnimg" src="images/HeadPhones/h5.jpg" alt="phones">
             <p>boAt Rockerz 510 Over Ear Bluetooth Headphones with Upto 20</p>
             <p class="slash">₹3,990</p><p class="price">₹1,299 (67% off)</p>
-            <input class="addtocart" value="Add To Cart" type="submit" name="l1">
+            <button type='submit' class='buy'>Buy Now</button>
+            </form>
         </div>
         <div class="card">
+        <form method='post' action=''>
+                <input type='hidden' name='code' value="h6" />
             <img class="phnimg" src="images/HeadPhones/h6.jpg" alt="phones">
             <p>boAt Rockerz 450 On Ear Bluetooth Headphones with Upto 15 Hours</p>
             <p class="slash">₹3,990</p><p class="price">₹1,499 (60% off)</p>
-            <input class="addtocart" value="Add To Cart" type="submit" name="l1">
+            <button type='submit' class='buy'>Buy Now</button>
+            </form>
         </div>
         <div class="card">
+        <form method='post' action=''>
+                <input type='hidden' name='code' value="h7" />
             <img class="phnimg" src="images/HeadPhones/h7.jpg" alt="phones">
             <p>boAt Rockerz 450 On Ear Bluetooth Headphones with Upto 15</p>
             <p class="slash">₹3,990</p><p class="price">₹1,499 (62% off)</p>
-            <input class="addtocart" value="Add To Cart" type="submit" name="l1">
+            <button type='submit' class='buy'>Buy Now</button>
+            </form>
         </div>
         <div class="card">
+        <form method='post' action=''>
+                <input type='hidden' name='code' value="h8" />
             <img class="phnimg" src="images/HeadPhones/h8.jpg" alt="phones">
             <p>boAt Rockerz 550 Over Ear Bluetooth Headphones with Upto 20 Hours</p>
             <p class="slash">₹4,999</p><p class="price">₹1,999 (60% off)</p>
-            <input class="addtocart" value="Add To Cart" type="submit" name="l1">
+            <button type='submit' class='buy'>Buy Now</button>
+            </form>
         </div>
     </div>
 </div>
