@@ -11,23 +11,23 @@ session_start();
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-    <?php
-        if(isset($_POST["login"])){
-            $_SESSION["emailphone"] = $_POST["emph"];
-            $emailphone = $_POST["emph"];
-            $connect = new mysqli("localhost", "root", "", "register");
-            $emailnumcheck = "SELECT email, mobilenum FROM register WHERE mobilenum='$emailphone' OR email='$emailphone'";
-            $emphq = $connect->query($emailnumcheck);
-            if($emphq){
-                $emphrow = $emphq->fetch_assoc();
-                if ($emphq->num_rows > 0) {
-                    header("location: password.php");
-                }
-                else{
-                    $emphErr = "User Doesn't Exists";
-                }
+<?php
+    if(isset($_POST["login"])){
+        $_SESSION["emailphone"] = $_POST["emph"];
+        $emailphone = $_POST["emph"];
+        $connect = new mysqli("localhost", "root", "", "register");
+        $emailnumcheck = "SELECT email, mobilenum FROM register WHERE mobilenum='$emailphone' OR email='$emailphone'";
+        $emphq = $connect->query($emailnumcheck);
+        if($emphq){
+            $emphrow = $emphq->fetch_assoc();
+            if ($emphq->num_rows > 0) {
+                header("location: password.php");
+            }
+            else{
+                $emphErr = "User Doesn't Exists";
             }
         }
+    }
     ?>
     <div class="loginContainer">
         <div class="subloginContainer">

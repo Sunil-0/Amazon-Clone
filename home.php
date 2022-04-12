@@ -59,7 +59,7 @@
         </div>
         <div class="mySlides fade">
             <img src="images/amazonhome4.jpg" style="width:100%; height: 400px">
-        </div>
+    </div>
 
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
@@ -96,7 +96,7 @@
         <div class="product">
             <img src="images/p1.jpg" alt=""><br>
             <div class="pricetag">
-                <p class="price">₹21,999.00 - ₹64,999.00</p>
+                <p class="price">₹21,999 - ₹64,999</p>
             </div>
         </div>
         </a>
@@ -104,7 +104,7 @@
         <div class="product">
             <img src="images/p2.jpg" alt=""><br>
             <div class="pricetag">
-                <p class="price">₹21,999.00 - ₹64,999.00</p>
+                <p class="price">₹7,499 - ₹19,989</p>
             </div>
         </div>
         </a>
@@ -112,7 +112,7 @@
         <div class="product">
             <img src="images/p3.jpg" alt=""><br>
             <div class="pricetag">
-                <p class="price">₹94.00 - ₹1,696.00</p>
+                <p class="price">₹94 - ₹1,696</p>
             </div>
         </div>
         </a>
@@ -120,7 +120,7 @@
         <div class="product">
             <img src="images/p4.jpg" alt=""><br>
             <div class="pricetag">
-                <p class="price">₹449.00 - ₹2,331.00</p>
+                <p class="price">₹429 - ₹809</p>
             </div>
         </div>
         </a>
@@ -128,7 +128,7 @@
         <div class="product">
             <img src="images/p5.jpg" alt=""><br>
                 <div class="pricetag">
-                <p class="price">₹21,999.00 - ₹64,999.00</p>
+                <p class="price">₹499 - ₹2,469</p>
             </div>
         </div>
         </a>
@@ -136,7 +136,7 @@
         <div class="product">
             <img src="images/p6.jpg" alt=""><br>
                 <div class="pricetag">
-                <p class="price">₹21,999.00 - ₹64,999.00</p>
+                <p class="price">₹799 - ₹36,999</p>
             </div>
         </div>
         </a>

@@ -37,7 +37,7 @@
             <section>
                 <div class="login">
                     <div class="subLogin">
-                        <p class="H1">Create Account</p>
+                        <p class="H1">User Details</p>
                         <div class="H3">
                             <label class="H3">Your Name</label>
                             <input class="cinput" type="text"  readonly value='<?php echo $UserName ?>' >
